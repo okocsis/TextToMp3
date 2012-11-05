@@ -1,0 +1,638 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C3C96FE91648518A00C4261A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C96FE81648518A00C4261A /* Cocoa.framework */; };
+		C3C96FF31648518A00C4261A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3C96FF11648518A00C4261A /* InfoPlist.strings */; };
+		C3C96FF51648518A00C4261A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C96FF41648518A00C4261A /* main.m */; };
+		C3C96FF91648518A00C4261A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C3C96FF71648518A00C4261A /* Credits.rtf */; };
+		C3C96FFC1648518A00C4261A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C96FFB1648518A00C4261A /* AppDelegate.m */; };
+		C3C96FFF1648518A00C4261A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C96FFD1648518A00C4261A /* MainMenu.xib */; };
+		C3C970021648518A00C4261A /* TextToMp3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3C970001648518A00C4261A /* TextToMp3.xcdatamodeld */; };
+		C3C9700A1648518A00C4261A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C970091648518A00C4261A /* SenTestingKit.framework */; };
+		C3C9700B1648518A00C4261A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C96FE81648518A00C4261A /* Cocoa.framework */; };
+		C3C970131648518A00C4261A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3C970111648518A00C4261A /* InfoPlist.strings */; };
+		C3C970161648518A00C4261A /* TextToMp3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C970151648518A00C4261A /* TextToMp3Tests.m */; };
+		C3C9701E1648518B00C4261A /* TextToMp3Importer.mdimporter in Resources */ = {isa = PBXBuildFile; fileRef = C3C9701B1648518B00C4261A /* TextToMp3Importer.mdimporter */; };
+		C3C970201648518B00C4261A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C9701F1648518B00C4261A /* CoreServices.framework */; };
+		C3C970221648518B00C4261A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C970211648518B00C4261A /* CoreFoundation.framework */; };
+		C3C970241648518B00C4261A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C970231648518B00C4261A /* CoreData.framework */; };
+		C3C970261648518B00C4261A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C970251648518B00C4261A /* Foundation.framework */; };
+		C3C9702C1648518B00C4261A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3C9702A1648518B00C4261A /* InfoPlist.strings */; };
+		C3C9702E1648518B00C4261A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C3C9702D1648518B00C4261A /* main.c */; };
+		C3C970301648518B00C4261A /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C9702F1648518B00C4261A /* GetMetadataForFile.m */; };
+		C3C970331648518B00C4261A /* MySpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C970321648518B00C4261A /* MySpotlightImporter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3C9700C1648518A00C4261A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3C96FDB1648518A00C4261A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3C96FE31648518A00C4261A;
+			remoteInfo = TextToMp3;
+		};
+		C3C9701C1648518B00C4261A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3C96FDB1648518A00C4261A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3C9701A1648518A00C4261A;
+			remoteInfo = TextToMp3Importer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C3C96FE41648518A00C4261A /* TextToMp3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextToMp3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3C96FE81648518A00C4261A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C3C96FEB1648518A00C4261A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C3C96FEC1648518A00C4261A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C3C96FED1648518A00C4261A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C3C96FF01648518A00C4261A /* TextToMp3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TextToMp3-Info.plist"; sourceTree = "<group>"; };
+		C3C96FF21648518A00C4261A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3C96FF41648518A00C4261A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C3C96FF61648518A00C4261A /* TextToMp3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TextToMp3-Prefix.pch"; sourceTree = "<group>"; };
+		C3C96FF81648518A00C4261A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		C3C96FFA1648518A00C4261A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C3C96FFB1648518A00C4261A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C3C96FFE1648518A00C4261A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C3C970011648518A00C4261A /* TextToMp3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TextToMp3.xcdatamodel; sourceTree = "<group>"; };
+		C3C970081648518A00C4261A /* TextToMp3Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextToMp3Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3C970091648518A00C4261A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		C3C970101648518A00C4261A /* TextToMp3Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TextToMp3Tests-Info.plist"; sourceTree = "<group>"; };
+		C3C970121648518A00C4261A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3C970141648518A00C4261A /* TextToMp3Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextToMp3Tests.h; sourceTree = "<group>"; };
+		C3C970151648518A00C4261A /* TextToMp3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextToMp3Tests.m; sourceTree = "<group>"; };
+		C3C9701B1648518B00C4261A /* TextToMp3Importer.mdimporter */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextToMp3Importer.mdimporter; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3C9701F1648518B00C4261A /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		C3C970211648518B00C4261A /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		C3C970231648518B00C4261A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C3C970251648518B00C4261A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C3C970291648518B00C4261A /* TextToMp3Importer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TextToMp3Importer-Info.plist"; sourceTree = "<group>"; };
+		C3C9702B1648518B00C4261A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3C9702D1648518B00C4261A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		C3C9702F1648518B00C4261A /* GetMetadataForFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetMetadataForFile.m; sourceTree = "<group>"; };
+		C3C970311648518B00C4261A /* MySpotlightImporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySpotlightImporter.h; sourceTree = "<group>"; };
+		C3C970321648518B00C4261A /* MySpotlightImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpotlightImporter.m; sourceTree = "<group>"; };
+		C3C970341648518B00C4261A /* Importer Read Me.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Importer Read Me.txt"; sourceTree = "<group>"; };
+		C3C970351648518B00C4261A /* TextToMp3Importer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TextToMp3Importer-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3C96FE11648518A00C4261A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C96FE91648518A00C4261A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C970041648518A00C4261A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C9700A1648518A00C4261A /* SenTestingKit.framework in Frameworks */,
+				C3C9700B1648518A00C4261A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C970181648518A00C4261A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C970201648518B00C4261A /* CoreServices.framework in Frameworks */,
+				C3C970221648518B00C4261A /* CoreFoundation.framework in Frameworks */,
+				C3C970241648518B00C4261A /* CoreData.framework in Frameworks */,
+				C3C970261648518B00C4261A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C3C96FD91648518A00C4261A = {
+			isa = PBXGroup;
+			children = (
+				C3C96FEE1648518A00C4261A /* TextToMp3 */,
+				C3C9700E1648518A00C4261A /* TextToMp3Tests */,
+				C3C970271648518B00C4261A /* TextToMp3Importer */,
+				C3C96FE71648518A00C4261A /* Frameworks */,
+				C3C96FE51648518A00C4261A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C3C96FE51648518A00C4261A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3C96FE41648518A00C4261A /* TextToMp3.app */,
+				C3C970081648518A00C4261A /* TextToMp3Tests.octest */,
+				C3C9701B1648518B00C4261A /* TextToMp3Importer.mdimporter */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3C96FE71648518A00C4261A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3C96FE81648518A00C4261A /* Cocoa.framework */,
+				C3C970091648518A00C4261A /* SenTestingKit.framework */,
+				C3C9701F1648518B00C4261A /* CoreServices.framework */,
+				C3C970211648518B00C4261A /* CoreFoundation.framework */,
+				C3C970231648518B00C4261A /* CoreData.framework */,
+				C3C970251648518B00C4261A /* Foundation.framework */,
+				C3C96FEA1648518A00C4261A /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3C96FEA1648518A00C4261A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3C96FEB1648518A00C4261A /* AppKit.framework */,
+				C3C96FEC1648518A00C4261A /* CoreData.framework */,
+				C3C96FED1648518A00C4261A /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		C3C96FEE1648518A00C4261A /* TextToMp3 */ = {
+			isa = PBXGroup;
+			children = (
+				C3C96FFA1648518A00C4261A /* AppDelegate.h */,
+				C3C96FFB1648518A00C4261A /* AppDelegate.m */,
+				C3C96FFD1648518A00C4261A /* MainMenu.xib */,
+				C3C970001648518A00C4261A /* TextToMp3.xcdatamodeld */,
+				C3C96FEF1648518A00C4261A /* Supporting Files */,
+			);
+			path = TextToMp3;
+			sourceTree = "<group>";
+		};
+		C3C96FEF1648518A00C4261A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3C96FF01648518A00C4261A /* TextToMp3-Info.plist */,
+				C3C96FF11648518A00C4261A /* InfoPlist.strings */,
+				C3C96FF41648518A00C4261A /* main.m */,
+				C3C96FF61648518A00C4261A /* TextToMp3-Prefix.pch */,
+				C3C96FF71648518A00C4261A /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3C9700E1648518A00C4261A /* TextToMp3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C3C970141648518A00C4261A /* TextToMp3Tests.h */,
+				C3C970151648518A00C4261A /* TextToMp3Tests.m */,
+				C3C9700F1648518A00C4261A /* Supporting Files */,
+			);
+			path = TextToMp3Tests;
+			sourceTree = "<group>";
+		};
+		C3C9700F1648518A00C4261A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3C970101648518A00C4261A /* TextToMp3Tests-Info.plist */,
+				C3C970111648518A00C4261A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3C970271648518B00C4261A /* TextToMp3Importer */ = {
+			isa = PBXGroup;
+			children = (
+				C3C9702F1648518B00C4261A /* GetMetadataForFile.m */,
+				C3C970311648518B00C4261A /* MySpotlightImporter.h */,
+				C3C970321648518B00C4261A /* MySpotlightImporter.m */,
+				C3C970341648518B00C4261A /* Importer Read Me.txt */,
+				C3C970281648518B00C4261A /* Supporting Files */,
+			);
+			path = TextToMp3Importer;
+			sourceTree = "<group>";
+		};
+		C3C970281648518B00C4261A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3C970291648518B00C4261A /* TextToMp3Importer-Info.plist */,
+				C3C9702A1648518B00C4261A /* InfoPlist.strings */,
+				C3C9702D1648518B00C4261A /* main.c */,
+				C3C970351648518B00C4261A /* TextToMp3Importer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3C96FE31648518A00C4261A /* TextToMp3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3C9703B1648518B00C4261A /* Build configuration list for PBXNativeTarget "TextToMp3" */;
+			buildPhases = (
+				C3C96FE01648518A00C4261A /* Sources */,
+				C3C96FE11648518A00C4261A /* Frameworks */,
+				C3C96FE21648518A00C4261A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3C9701D1648518B00C4261A /* PBXTargetDependency */,
+			);
+			name = TextToMp3;
+			productName = TextToMp3;
+			productReference = C3C96FE41648518A00C4261A /* TextToMp3.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3C970071648518A00C4261A /* TextToMp3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3C9703E1648518B00C4261A /* Build configuration list for PBXNativeTarget "TextToMp3Tests" */;
+			buildPhases = (
+				C3C970031648518A00C4261A /* Sources */,
+				C3C970041648518A00C4261A /* Frameworks */,
+				C3C970051648518A00C4261A /* Resources */,
+				C3C970061648518A00C4261A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3C9700D1648518A00C4261A /* PBXTargetDependency */,
+			);
+			name = TextToMp3Tests;
+			productName = TextToMp3Tests;
+			productReference = C3C970081648518A00C4261A /* TextToMp3Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		C3C9701A1648518A00C4261A /* TextToMp3Importer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3C970381648518B00C4261A /* Build configuration list for PBXNativeTarget "TextToMp3Importer" */;
+			buildPhases = (
+				C3C970171648518A00C4261A /* Sources */,
+				C3C970181648518A00C4261A /* Frameworks */,
+				C3C970191648518A00C4261A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TextToMp3Importer;
+			productName = TextToMp3Importer;
+			productReference = C3C9701B1648518B00C4261A /* TextToMp3Importer.mdimporter */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3C96FDB1648518A00C4261A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = sciapps;
+			};
+			buildConfigurationList = C3C96FDE1648518A00C4261A /* Build configuration list for PBXProject "TextToMp3" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C3C96FD91648518A00C4261A;
+			productRefGroup = C3C96FE51648518A00C4261A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3C96FE31648518A00C4261A /* TextToMp3 */,
+				C3C970071648518A00C4261A /* TextToMp3Tests */,
+				C3C9701A1648518A00C4261A /* TextToMp3Importer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3C96FE21648518A00C4261A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C96FF31648518A00C4261A /* InfoPlist.strings in Resources */,
+				C3C96FF91648518A00C4261A /* Credits.rtf in Resources */,
+				C3C96FFF1648518A00C4261A /* MainMenu.xib in Resources */,
+				C3C9701E1648518B00C4261A /* TextToMp3Importer.mdimporter in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C970051648518A00C4261A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C970131648518A00C4261A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C970191648518A00C4261A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C9702C1648518B00C4261A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C3C970061648518A00C4261A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3C96FE01648518A00C4261A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C96FF51648518A00C4261A /* main.m in Sources */,
+				C3C96FFC1648518A00C4261A /* AppDelegate.m in Sources */,
+				C3C970021648518A00C4261A /* TextToMp3.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C970031648518A00C4261A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C970161648518A00C4261A /* TextToMp3Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C970171648518A00C4261A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C9702E1648518B00C4261A /* main.c in Sources */,
+				C3C970301648518B00C4261A /* GetMetadataForFile.m in Sources */,
+				C3C970331648518B00C4261A /* MySpotlightImporter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3C9700D1648518A00C4261A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3C96FE31648518A00C4261A /* TextToMp3 */;
+			targetProxy = C3C9700C1648518A00C4261A /* PBXContainerItemProxy */;
+		};
+		C3C9701D1648518B00C4261A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3C9701A1648518A00C4261A /* TextToMp3Importer */;
+			targetProxy = C3C9701C1648518B00C4261A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C3C96FF11648518A00C4261A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3C96FF21648518A00C4261A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C3C96FF71648518A00C4261A /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3C96FF81648518A00C4261A /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		C3C96FFD1648518A00C4261A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3C96FFE1648518A00C4261A /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		C3C970111648518A00C4261A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3C970121648518A00C4261A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C3C9702A1648518B00C4261A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3C9702B1648518B00C4261A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C3C970361648518B00C4261A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C3C970371648518B00C4261A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C3C970391648518B00C4261A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TextToMp3Importer/TextToMp3Importer-Prefix.pch";
+				INFOPLIST_FILE = "TextToMp3Importer/TextToMp3Importer-Info.plist";
+				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
+				LIBRARY_STYLE = BUNDLE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = mdimporter;
+			};
+			name = Debug;
+		};
+		C3C9703A1648518B00C4261A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TextToMp3Importer/TextToMp3Importer-Prefix.pch";
+				INFOPLIST_FILE = "TextToMp3Importer/TextToMp3Importer-Info.plist";
+				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
+				LIBRARY_STYLE = BUNDLE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = mdimporter;
+			};
+			name = Release;
+		};
+		C3C9703C1648518B00C4261A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TextToMp3/TextToMp3-Prefix.pch";
+				INFOPLIST_FILE = "TextToMp3/TextToMp3-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C3C9703D1648518B00C4261A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TextToMp3/TextToMp3-Prefix.pch";
+				INFOPLIST_FILE = "TextToMp3/TextToMp3-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C3C9703F1648518B00C4261A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TextToMp3.app/Contents/MacOS/TextToMp3";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TextToMp3/TextToMp3-Prefix.pch";
+				INFOPLIST_FILE = "TextToMp3Tests/TextToMp3Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		C3C970401648518B00C4261A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TextToMp3.app/Contents/MacOS/TextToMp3";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TextToMp3/TextToMp3-Prefix.pch";
+				INFOPLIST_FILE = "TextToMp3Tests/TextToMp3Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3C96FDE1648518A00C4261A /* Build configuration list for PBXProject "TextToMp3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C970361648518B00C4261A /* Debug */,
+				C3C970371648518B00C4261A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3C970381648518B00C4261A /* Build configuration list for PBXNativeTarget "TextToMp3Importer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C970391648518B00C4261A /* Debug */,
+				C3C9703A1648518B00C4261A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C3C9703B1648518B00C4261A /* Build configuration list for PBXNativeTarget "TextToMp3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C9703C1648518B00C4261A /* Debug */,
+				C3C9703D1648518B00C4261A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C3C9703E1648518B00C4261A /* Build configuration list for PBXNativeTarget "TextToMp3Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C9703F1648518B00C4261A /* Debug */,
+				C3C970401648518B00C4261A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C3C970001648518A00C4261A /* TextToMp3.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C3C970011648518A00C4261A /* TextToMp3.xcdatamodel */,
+			);
+			currentVersion = C3C970011648518A00C4261A /* TextToMp3.xcdatamodel */;
+			path = TextToMp3.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C3C96FDB1648518A00C4261A /* Project object */;
+}
