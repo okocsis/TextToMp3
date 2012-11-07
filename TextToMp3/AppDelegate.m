@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppKit/NSSpeechSynthesizer.h"
 
 @implementation AppDelegate
 
@@ -132,6 +133,11 @@
     if (![[self managedObjectContext] save:&error]) {
         [[NSApplication sharedApplication] presentError:error];
     }
+}
+
+- (IBAction)speakIt:(id)sender {
+    NSSpeechSynthesizer * synth = [[NSSpeechSynthesizer alloc] initWithVoice:[[NSSpeechSynthesizer availableVoices] objectAtIndex:0]];
+    [synth startSpeakingString:self.textField.stringValue];
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
