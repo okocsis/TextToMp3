@@ -16,7 +16,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    self.textField.stringValue = @"Hello!";
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "sciapps.TextToMp3" in the user's Application Support directory.
