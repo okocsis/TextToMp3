@@ -138,6 +138,11 @@
     }
 }
 
+- (IBAction)speakIt:(id)sender {
+    NSSpeechSynthesizer * synth = [[NSSpeechSynthesizer alloc] initWithVoice:[[NSSpeechSynthesizer availableVoices] objectAtIndex:0]];
+    [synth startSpeakingString:self.textField.stringValue];
+}
+
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
 {
     // Save changes in the application's managed object context before the application terminates.
