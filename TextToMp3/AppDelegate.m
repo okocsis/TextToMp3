@@ -17,9 +17,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    self.textField.stringValue = @"Hello!";
-    self.window = windowController.window;
-    BOOL is =[windowController isWindowLoaded];
+    
     
 }
 
@@ -136,11 +134,6 @@
     if (![[self managedObjectContext] save:&error]) {
         [[NSApplication sharedApplication] presentError:error];
     }
-}
-
-- (IBAction)speakIt:(id)sender {
-    NSSpeechSynthesizer * synth = [[NSSpeechSynthesizer alloc] initWithVoice:[[NSSpeechSynthesizer availableVoices] objectAtIndex:0]];
-    [synth startSpeakingString:self.textField.stringValue];
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
