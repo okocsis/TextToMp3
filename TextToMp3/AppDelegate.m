@@ -7,16 +7,20 @@
 //
 
 #import "AppDelegate.h"
-
+#import "AppKit/NSSpeechSynthesizer.h"
 @implementation AppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize windowController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     self.textField.stringValue = @"Hello!";
+    self.window = windowController.window;
+    BOOL is =[windowController isWindowLoaded];
+    
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "sciapps.TextToMp3" in the user's Application Support directory.
