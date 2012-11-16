@@ -7,7 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ApplicationServices/ApplicationServices.h"
 
 @interface WindowController : NSWindowController
+{
+    OSErr _theErr;
+    
+    SpeechChannel _speechChennel;
+}
+
 @property (assign) IBOutlet NSTextField* textField;
+
+-(IBAction)speakButtonPressed:(id)sender;
 @end

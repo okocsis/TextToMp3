@@ -4,27 +4,42 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WindowController.m"
-         timestampString = "374343608.181685"
+         timestampString = "374704202.962622"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1"
-         endingLineNumber = "1">
+         startingLineNumber = "55"
+         endingLineNumber = "55"
+         landmarkName = "-speakButtonPressed:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "TextToMp3/ViewController.m"
-         timestampString = "374341677.944449"
+         filePath = "WindowController.m"
+         timestampString = "374704202.962622"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "19"
-         endingLineNumber = "19"
-         landmarkName = "-initWithNibName:bundle:"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
+         landmarkName = "-speakButtonPressed:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WindowController.m"
+         timestampString = "374704197.880217"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "31"
+         endingLineNumber = "31"
+         landmarkName = "-initWithWindowNibName:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

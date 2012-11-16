@@ -10,6 +10,7 @@
 #import "AppKit/NSSpeechSynthesizer.h"
 @implementation AppDelegate
 
+@synthesize window;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
@@ -17,7 +18,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    
     
 }
 

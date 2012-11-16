@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3369E581655923300054F8F /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3369E541655923300054F8F /* CAStreamBasicDescription.cpp */; };
+		C3369E591655923300054F8F /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3369E561655923300054F8F /* CAXException.cpp */; };
+		C3369E5D1655951500054F8F /* convertMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3369E5B1655951500054F8F /* convertMain.cpp */; };
 		C370922A164FFB8B0075B362 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3709228164FFB8B0075B362 /* WindowController.m */; };
 		C370922B164FFB8B0075B362 /* WindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3709229164FFB8B0075B362 /* WindowController.xib */; };
 		C37092361650FD8F0075B362 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37092351650FD8F0075B362 /* ApplicationServices.framework */; };
@@ -50,9 +53,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C3709227164FFB8B0075B362 /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowController.h; path = ../WindowController.h; sourceTree = "<group>"; };
-		C3709228164FFB8B0075B362 /* WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WindowController.m; path = ../WindowController.m; sourceTree = "<group>"; };
-		C3709229164FFB8B0075B362 /* WindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WindowController.xib; path = ../WindowController.xib; sourceTree = "<group>"; };
+		C3369E511655923300054F8F /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		C3369E521655923300054F8F /* CADebugPrintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugPrintf.h; sourceTree = "<group>"; };
+		C3369E531655923300054F8F /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		C3369E541655923300054F8F /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		C3369E551655923300054F8F /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		C3369E561655923300054F8F /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		C3369E571655923300054F8F /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
+		C3369E5B1655951500054F8F /* convertMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convertMain.cpp; sourceTree = "<group>"; };
+		C3369E5C1655951500054F8F /* convertMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convertMain.h; sourceTree = "<group>"; };
+		C3709227164FFB8B0075B362 /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
+		C3709228164FFB8B0075B362 /* WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
+		C3709229164FFB8B0075B362 /* WindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WindowController.xib; sourceTree = "<group>"; };
 		C37092351650FD8F0075B362 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		C3C96FE41648518A00C4261A /* TextToMp3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextToMp3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C96FE81648518A00C4261A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -122,6 +134,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3369E501655923300054F8F /* PublicUtility */ = {
+			isa = PBXGroup;
+			children = (
+				C3369E511655923300054F8F /* CADebugMacros.h */,
+				C3369E521655923300054F8F /* CADebugPrintf.h */,
+				C3369E531655923300054F8F /* CAMath.h */,
+				C3369E541655923300054F8F /* CAStreamBasicDescription.cpp */,
+				C3369E551655923300054F8F /* CAStreamBasicDescription.h */,
+				C3369E561655923300054F8F /* CAXException.cpp */,
+				C3369E571655923300054F8F /* CAXException.h */,
+			);
+			path = PublicUtility;
+			sourceTree = "<group>";
+		};
 		C3C96FD91648518A00C4261A = {
 			isa = PBXGroup;
 			children = (
@@ -176,8 +202,11 @@
 				C3C96FFD1648518A00C4261A /* MainMenu.xib */,
 				C3709227164FFB8B0075B362 /* WindowController.h */,
 				C3709228164FFB8B0075B362 /* WindowController.m */,
+				C3369E5C1655951500054F8F /* convertMain.h */,
+				C3369E5B1655951500054F8F /* convertMain.cpp */,
 				C3709229164FFB8B0075B362 /* WindowController.xib */,
 				C3C970001648518A00C4261A /* TextToMp3.xcdatamodeld */,
+				C3369E501655923300054F8F /* PublicUtility */,
 				C3C96FEF1648518A00C4261A /* Supporting Files */,
 			);
 			path = TextToMp3;
@@ -378,6 +407,9 @@
 				C3C96FFC1648518A00C4261A /* AppDelegate.m in Sources */,
 				C3C970021648518A00C4261A /* TextToMp3.xcdatamodeld in Sources */,
 				C370922A164FFB8B0075B362 /* WindowController.m in Sources */,
+				C3369E581655923300054F8F /* CAStreamBasicDescription.cpp in Sources */,
+				C3369E591655923300054F8F /* CAXException.cpp in Sources */,
+				C3369E5D1655951500054F8F /* convertMain.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

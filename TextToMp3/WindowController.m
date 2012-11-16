@@ -8,6 +8,8 @@
 
 #import "WindowController.h"
 #import "ApplicationServices/ApplicationServices.h"
+
+
 @interface WindowController ()
 
 @end
@@ -27,7 +29,10 @@
         if (self)
         {
             [self showWindow:self];
-            // Initialization code here.
+            _theErr = NewSpeechChannel(NULL,&_speechChennel);
+            _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty,NULL                        );
+
+            
         }
     return self;
 }
@@ -43,6 +48,12 @@
 }
 - (IBAction)showWindow:(id)sender
 {
+    [super showWindow:sender];
+}
+-(IBAction)speakButtonPressed:(id)sender
+{
+    CFStringRef cFStringRef = (__bridge CFStringRef)[self.textField.stringValue copy];
     
+    _theErr = SpeakCFString(_speechChennel, cFStringRef, NULL);
 }
 @end
