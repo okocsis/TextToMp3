@@ -39,12 +39,14 @@
 - (void)windowWillLoad
 {
     [super windowWillLoad];
+    
 }
 - (void)windowDidLoad
 {
     [super windowDidLoad];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-    self.textField.stringValue = @"Hello!";    
+    self.textField.stringValue = @"Hello!"; 
+       
 }
 - (IBAction)showWindow:(id)sender
 {
