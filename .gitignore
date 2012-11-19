@@ -6,3 +6,5 @@ TextToMp3.xcodeproj/xcuserdata/okocsis.xcuserdatad/xcschemes/xcschememanagement.
 *.xcuserstate
 
 *.xcworkspacedata
+
+*.DS_Store
