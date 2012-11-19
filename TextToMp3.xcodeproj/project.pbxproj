@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C3369E581655923300054F8F /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3369E541655923300054F8F /* CAStreamBasicDescription.cpp */; };
 		C3369E591655923300054F8F /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3369E561655923300054F8F /* CAXException.cpp */; };
-		C3369E5D1655951500054F8F /* convertMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3369E5B1655951500054F8F /* convertMain.cpp */; };
 		C370922A164FFB8B0075B362 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3709228164FFB8B0075B362 /* WindowController.m */; };
 		C370922B164FFB8B0075B362 /* WindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3709229164FFB8B0075B362 /* WindowController.xib */; };
 		C37092361650FD8F0075B362 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37092351650FD8F0075B362 /* ApplicationServices.framework */; };
@@ -33,6 +32,8 @@
 		C3C9702E1648518B00C4261A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C3C9702D1648518B00C4261A /* main.c */; };
 		C3C970301648518B00C4261A /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C9702F1648518B00C4261A /* GetMetadataForFile.m */; };
 		C3C970331648518B00C4261A /* MySpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C970321648518B00C4261A /* MySpotlightImporter.m */; };
+		C3EFF37D16564D2600A77639 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3EFF37C16564D2600A77639 /* AudioToolbox.framework */; };
+		C3EFF37E16564D3400A77639 /* convertMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3369E5B1655951500054F8F /* convertMain.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		C3C970321648518B00C4261A /* MySpotlightImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpotlightImporter.m; sourceTree = "<group>"; };
 		C3C970341648518B00C4261A /* Importer Read Me.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Importer Read Me.txt"; sourceTree = "<group>"; };
 		C3C970351648518B00C4261A /* TextToMp3Importer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TextToMp3Importer-Prefix.pch"; sourceTree = "<group>"; };
+		C3EFF37C16564D2600A77639 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			files = (
 				C3C96FE91648518A00C4261A /* Cocoa.framework in Frameworks */,
 				C37092361650FD8F0075B362 /* ApplicationServices.framework in Frameworks */,
+				C3EFF37D16564D2600A77639 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +175,7 @@
 		C3C96FE71648518A00C4261A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3EFF37C16564D2600A77639 /* AudioToolbox.framework */,
 				C37092351650FD8F0075B362 /* ApplicationServices.framework */,
 				C3C96FE81648518A00C4261A /* Cocoa.framework */,
 				C3C970091648518A00C4261A /* SenTestingKit.framework */,
@@ -409,7 +413,7 @@
 				C370922A164FFB8B0075B362 /* WindowController.m in Sources */,
 				C3369E581655923300054F8F /* CAStreamBasicDescription.cpp in Sources */,
 				C3369E591655923300054F8F /* CAXException.cpp in Sources */,
-				C3369E5D1655951500054F8F /* convertMain.cpp in Sources */,
+				C3EFF37E16564D3400A77639 /* convertMain.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
