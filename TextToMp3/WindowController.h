@@ -21,10 +21,14 @@
     AudioStreamBasicDescription _audioStreamBasicDescription;
     ExtAudioFileRef _extAudioFileRef;
     NSNumber* _extAudioFileRef_NSNumber;
+    
+    BOOL dbFileIsSelected;
+    BOOL tableIsSelected;
+    BOOL fieldIsSelected;
 }
 
 @property (assign) IBOutlet NSTextField* textField;
 
--(IBAction)speakButtonPressed:(id)sender;
+- (IBAction)speakButtonPressed:(id)sender;
 - (IBAction)openExistingDocument:(id)sender;
 @end

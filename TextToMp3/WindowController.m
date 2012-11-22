@@ -33,14 +33,14 @@
             [self showWindow:self];
             _fileURL = [NSURL fileURLWithPath:@"./out.aiff"];
             
-            _audioStreamBasicDescription.mSampleRate = 0;
-            _audioStreamBasicDescription.mFormatID = kAudioFormatMPEGLayer3;
-            _audioStreamBasicDescription.mFormatFlags = 0; //no flags supported
-            _audioStreamBasicDescription.mBytesPerPacket = 2;
-            _audioStreamBasicDescription.mFramesPerPacket = 1;
-            _audioStreamBasicDescription.mBytesPerFrame = 2;
-            _audioStreamBasicDescription.mChannelsPerFrame = 2;
-            _audioStreamBasicDescription.mBitsPerChannel = 16;
+//            _audioStreamBasicDescription.mSampleRate = 0;
+//            _audioStreamBasicDescription.mFormatID = kAudioFormatMPEGLayer3;
+//            _audioStreamBasicDescription.mFormatFlags = 0; //no flags supported
+//            _audioStreamBasicDescription.mBytesPerPacket = 2;
+//            _audioStreamBasicDescription.mFramesPerPacket = 1;
+//            _audioStreamBasicDescription.mBytesPerFrame = 2;
+//            _audioStreamBasicDescription.mChannelsPerFrame = 2;
+//            _audioStreamBasicDescription.mBitsPerChannel = 16;
             
             
             
@@ -48,7 +48,7 @@
             
             _theErr = NewSpeechChannel(NULL,&_speechChennel);
             
-            
+            _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, NULL);
 
             
         }
@@ -72,34 +72,27 @@
 }
 - (IBAction)speakButtonPressed:(id)sender
 {
-//    CFURLRef fileCFURLRef = (__bridge CFURLRef)_filePath;
-//    _theErr = ExtAudioFileCreateWithURL(fileCFURLRef,kAudioFileMP3Type,
-//                                        &_audioStreamBasicDescription,
-//                                        NULL,
-//                                        kAudioFileFlags_EraseFile,
-//                                        &_extAudioFileRef
-//                                        );
-//    _extAudioFileRef_NSNumber = [NSNumber numberWithInt:(int)_extAudioFileRef];
-//    CFNumberRef extAudioFileRef_CFNumberRef = (__bridge CFNumberRef)_extAudioFileRef_NSNumber;
-//    
-//    _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToExtAudioFileProperty, extAudioFileRef_CFNumberRef);
-//    
-//    CFStringRef cFStringRef = (__bridge CFStringRef)[self.textField.stringValue copy];
-//    
-//    _theErr = SpeakCFString(_speechChennel, cFStringRef, NULL);
-//    
-//    _theErr = ExtAudioFileWriteAsync (_extAudioFileRef,0,NULL);
-//    _theErr = ExtAudioFileDispose(_extAudioFileRef);
+    NSArray* fieldStringArray = [DataBaseQuery textQueryWithFile:[_databaseURL relativePath] AndQsql:@"SELECT sql FROM sqlite_master WHERE tbl_name = 'words'"];
+    for (NSArray* recordI in fieldStringArray)
+    {
+        NSLog(@"%@",[recordI objectAtIndex:0]);
+    }
+    NSArray* contentStringArray = [DataBaseQuery textQueryWithFile:[_databaseURL relativePath] AndQsql:@"select russian from words where section=1"];
     
-    _fileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"./%@.aiff",self.textField.stringValue] ];
-    CFURLRef fileCFURLRef = (__bridge CFURLRef)_fileURL;
-    
-    _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, fileCFURLRef);
-    
-    CFStringRef cFStringRef = (__bridge CFStringRef)[self.textField.stringValue copy];
-    
-    _theErr = SpeakCFString(_speechChennel, cFStringRef, NULL);
-    
+    for (NSArray* recordI in contentStringArray)
+    {
+        NSLog(@"%@",[recordI objectAtIndex:0]);
+        _fileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"./%@.aiff",[recordI objectAtIndex:0] ] ];
+        CFURLRef fileCFURLRef = (__bridge CFURLRef)_fileURL;
+        
+        _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, fileCFURLRef);
+        
+        CFStringRef cFStringRef = (__bridge CFStringRef)[recordI objectAtIndex:0];
+        
+        _theErr = SpeakCFString(_speechChennel, cFStringRef, NULL);
+
+    }
+        
 }
 
 - (IBAction)openExistingDocument:(id)sender {
@@ -108,13 +101,14 @@
     // This method displays the panel and returns immediately.
     // The completion handler is called when the user selects an
     // item or cancels the panel.
-    [panel beginWithCompletionHandler:^(NSInteger result){
-        if (result == NSFileHandlingPanelOKButton) {
+    [panel beginWithCompletionHandler:^(NSInteger result)
+    {
+        if (result == NSFileHandlingPanelOKButton)
+        {
             _databaseURL = [[panel URLs] objectAtIndex:0];
+            dbFileIsSelected = YES;
             // Open  the document.
-            NSString* string = [_databaseURL relativePath];
         }
-        
     }];
     
     
