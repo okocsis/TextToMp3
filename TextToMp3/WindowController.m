@@ -13,11 +13,23 @@
 
 
 @interface WindowController ()
-
+- (BOOL) tryToEnableConvertButton;
 @end
 
 @implementation WindowController
-@synthesize textField;
+@synthesize tableNameTextField, fieldNameTextField, dbInfoTextView;
+@synthesize convertButton;
+
+- (BOOL) tryToEnableConvertButton
+{
+    if (dbFileIsSelected && tableIsSelected && fieldIsSelected)
+    {
+        [convertButton setEnabled:YES];
+        return YES;
+    }
+    return NO;
+}
+
 
 - (id)init
 {
@@ -31,25 +43,12 @@
         if (self)
         {
             [self showWindow:self];
-            _fileURL = [NSURL fileURLWithPath:@"./out.aiff"];
-            
-//            _audioStreamBasicDescription.mSampleRate = 0;
-//            _audioStreamBasicDescription.mFormatID = kAudioFormatMPEGLayer3;
-//            _audioStreamBasicDescription.mFormatFlags = 0; //no flags supported
-//            _audioStreamBasicDescription.mBytesPerPacket = 2;
-//            _audioStreamBasicDescription.mFramesPerPacket = 1;
-//            _audioStreamBasicDescription.mBytesPerFrame = 2;
-//            _audioStreamBasicDescription.mChannelsPerFrame = 2;
-//            _audioStreamBasicDescription.mBitsPerChannel = 16;
-            
-            
-            
-            
-            
             _theErr = NewSpeechChannel(NULL,&_speechChennel);
             
             _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, NULL);
-
+            dbFileIsSelected = NO;
+            tableIsSelected = NO;
+            fieldIsSelected = NO;
             
         }
     return self;
@@ -63,26 +62,23 @@
 {
     [super windowDidLoad];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-    self.textField.stringValue = @"Hello!"; 
-       
+    [convertButton setEnabled:NO];
 }
+
 - (IBAction)showWindow:(id)sender
 {
     [super showWindow:sender];
 }
-- (IBAction)speakButtonPressed:(id)sender
+- (IBAction)convertButtonPressed:(id)sender
 {
-    NSArray* fieldStringArray = [DataBaseQuery textQueryWithFile:[_databaseURL relativePath] AndQsql:@"SELECT sql FROM sqlite_master WHERE tbl_name = 'words'"];
-    for (NSArray* recordI in fieldStringArray)
-    {
-        NSLog(@"%@",[recordI objectAtIndex:0]);
-    }
-    NSArray* contentStringArray = [DataBaseQuery textQueryWithFile:[_databaseURL relativePath] AndQsql:@"select russian from words where section=1"];
+    
+    
+    NSArray* contentStringArray = [DataBaseQuery textQueryWithFile:[_databaseURL relativePath] AndQsql:[NSString stringWithFormat:@"select %@,rowid,section from %@",fieldNameTextField.stringValue,tableNameTextField.stringValue] ];
     
     for (NSArray* recordI in contentStringArray)
     {
-        NSLog(@"%@",[recordI objectAtIndex:0]);
-        _fileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"./%@.aiff",[recordI objectAtIndex:0] ] ];
+        //NSLog(@"%@",[recordI objectAtIndex:0]);
+        _fileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"./%@_%@_%@.aiff", [recordI objectAtIndex:1], [recordI objectAtIndex:2], [recordI objectAtIndex:0] ] ];
         CFURLRef fileCFURLRef = (__bridge CFURLRef)_fileURL;
         
         _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, fileCFURLRef);
@@ -92,6 +88,7 @@
         _theErr = SpeakCFString(_speechChennel, cFStringRef, NULL);
 
     }
+    [sender setEnabled:NO];
         
 }
 
@@ -107,12 +104,24 @@
         {
             _databaseURL = [[panel URLs] objectAtIndex:0];
             dbFileIsSelected = YES;
+            NSArray* fieldStringArray = [DataBaseQuery textQueryWithFile:[_databaseURL relativePath] AndQsql:@"SELECT sql FROM sqlite_master"];
+            for (NSArray* recordI in fieldStringArray)
+            {
+                [dbInfoTextView insertText:[recordI objectAtIndex:0]]; ;
+            }
+            
             // Open  the document.
         }
     }];
     
     
     
+}
+- (IBAction)checkButtonPressed:(id)sender
+{
+    tableIsSelected = [tableNameTextField.stringValue isEqualToString:@""] ? NO : YES;
+    fieldIsSelected = [fieldNameTextField.stringValue isEqualToString:@""] ? NO : YES;
+    [self tryToEnableConvertButton];
 }
 - (void)dealloc
 {

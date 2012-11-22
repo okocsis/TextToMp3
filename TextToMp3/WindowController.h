@@ -25,10 +25,16 @@
     BOOL dbFileIsSelected;
     BOOL tableIsSelected;
     BOOL fieldIsSelected;
+
 }
 
-@property (assign) IBOutlet NSTextField* textField;
+@property (assign) IBOutlet NSTextField* tableNameTextField;
+@property (assign) IBOutlet NSTextField* fieldNameTextField;
+@property (assign) IBOutlet NSTextView* dbInfoTextView;
 
-- (IBAction)speakButtonPressed:(id)sender;
+@property (assign) IBOutlet NSButton* convertButton;
+
+- (IBAction)convertButtonPressed:(id)sender;
+- (IBAction)checkButtonPressed:(id)sender;
 - (IBAction)openExistingDocument:(id)sender;
 @end
