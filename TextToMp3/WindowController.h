@@ -18,6 +18,7 @@
     SpeechChannel _speechChennel;
     NSURL* _fileURL;
     NSURL* _databaseURL;
+    NSURL* _saveDirectoryURL;
     AudioStreamBasicDescription _audioStreamBasicDescription;
     ExtAudioFileRef _extAudioFileRef;
     NSNumber* _extAudioFileRef_NSNumber;

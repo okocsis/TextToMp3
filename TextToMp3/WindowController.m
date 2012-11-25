@@ -69,16 +69,15 @@
 {
     [super showWindow:sender];
 }
-- (IBAction)convertButtonPressed:(id)sender
+- (void)convertAndPlace
 {
-    
-    
     NSArray* contentStringArray = [DataBaseQuery textQueryWithFile:[_databaseURL relativePath] AndQsql:[NSString stringWithFormat:@"select %@,rowid,section from %@",fieldNameTextField.stringValue,tableNameTextField.stringValue] ];
     
     for (NSArray* recordI in contentStringArray)
     {
         //NSLog(@"%@",[recordI objectAtIndex:0]);
-        _fileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"./%@_%@_%@.aiff", [recordI objectAtIndex:1], [recordI objectAtIndex:2], [recordI objectAtIndex:0] ] ];
+        //        _fileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"./%@_%@_%@.aiff", [recordI objectAtIndex:1], [recordI objectAtIndex:2], [recordI objectAtIndex:0] ] ];
+        _fileURL = [_saveDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"./%@_%@_%@.aiff", [recordI objectAtIndex:1], [recordI objectAtIndex:2], [recordI objectAtIndex:0] ]];
         CFURLRef fileCFURLRef = (__bridge CFURLRef)_fileURL;
         
         _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, fileCFURLRef);
@@ -86,9 +85,27 @@
         CFStringRef cFStringRef = (__bridge CFStringRef)[recordI objectAtIndex:0];
         
         _theErr = SpeakCFString(_speechChennel, cFStringRef, NULL);
-
+        
     }
-    [sender setEnabled:NO];
+    [convertButton setEnabled:NO];
+}
+- (IBAction)convertButtonPressed:(id)sender
+{
+
+    NSOpenPanel* directoryChooserPanel = [NSOpenPanel openPanel];
+    [directoryChooserPanel setCanChooseDirectories:YES];
+    [directoryChooserPanel setCanCreateDirectories:YES];
+    [directoryChooserPanel setPrompt:@"Choose"];
+    [directoryChooserPanel beginWithCompletionHandler:^(NSInteger result)
+    {
+        
+        if (result == NSFileHandlingPanelOKButton)
+        {
+            _saveDirectoryURL = [directoryChooserPanel directoryURL];
+            [self convertAndPlace];
+        }
+    }];
+    
         
 }
 
