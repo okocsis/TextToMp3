@@ -36,7 +36,7 @@
     {
         for (NSString* qsql in qsqlArray)
         {
-           // NSLog(qsql);
+            NSLog(@"%@",qsql);
             sqlite3_prepare_v2(db, [qsql UTF8String], -1, &statement, nil);
             sqlite3_step(statement);
             sqlite3_finalize(statement);

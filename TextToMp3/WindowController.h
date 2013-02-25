@@ -15,7 +15,6 @@
 {
     OSErr _theErr;
     
-    SpeechChannel _speechChennel;
     NSURL* _fileURL;
     NSURL* _databaseURL;
     NSURL* _saveDirectoryURL;
@@ -23,19 +22,27 @@
     ExtAudioFileRef _extAudioFileRef;
     NSNumber* _extAudioFileRef_NSNumber;
     
+    
     BOOL dbFileIsSelected;
     BOOL tableIsSelected;
     BOOL fieldIsSelected;
 
 }
 
-@property (assign) IBOutlet NSTextField* tableNameTextField;
-@property (assign) IBOutlet NSTextField* fieldNameTextField;
-@property (assign) IBOutlet NSTextView* dbInfoTextView;
+@property (strong, atomic) IBOutlet NSTextField* tableNameTextField;
+@property (strong, atomic) IBOutlet NSTextField* fieldNameTextField;
+@property (strong, atomic) IBOutlet NSTextField* pathFieldTextField;
+@property (strong, atomic) IBOutlet NSTextView* dbInfoTextView;
 
-@property (assign) IBOutlet NSButton* convertButton;
+@property (strong, atomic) IBOutlet NSButton* convertButton;
+@property (strong, atomic) IBOutlet NSButton* insertButton;
+
+//@property (assign) SpeechChannel speechChennel;
+
+- (IBAction)openExistingDocument:(id)sender;
+- (IBAction)checkButtonPressed:(id)sender;
 
 - (IBAction)convertButtonPressed:(id)sender;
-- (IBAction)checkButtonPressed:(id)sender;
-- (IBAction)openExistingDocument:(id)sender;
+- (IBAction)insertButtonPressed:(id)sender;
+
 @end

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AppKit/NSSpeechSynthesizer.h"
+#import "ApplicationServices/ApplicationServices.h"
 @implementation AppDelegate
 
 @synthesize window;
@@ -16,6 +17,7 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize windowController;
 
+//SpeechChannel speechChennel;
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     
@@ -139,7 +141,8 @@
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
 {
     // Save changes in the application's managed object context before the application terminates.
-    
+//    OSErr theErr;
+//    theErr = DisposeSpeechChannel(speechChennel);
     if (!_managedObjectContext) {
         return NSTerminateNow;
     }
