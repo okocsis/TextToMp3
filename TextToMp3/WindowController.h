@@ -15,6 +15,7 @@
 {
     OSErr _theErr;
     
+    SpeechChannel _speechChennel;
     NSURL* _fileURL;
     NSURL* _databaseURL;
     NSURL* _saveDirectoryURL;

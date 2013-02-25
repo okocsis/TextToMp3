@@ -21,10 +21,7 @@
 @implementation WindowController
 @synthesize tableNameTextField, fieldNameTextField, pathFieldTextField, dbInfoTextView;
 @synthesize convertButton, insertButton;
-static Boolean loopStop;
-static SpeechChannel speechChennel;
 
-static pascal void MySpeechDoneProc (SpeechChannel chan, SRefCon refCon);
 
 - (id)init
 {
@@ -38,12 +35,10 @@ static pascal void MySpeechDoneProc (SpeechChannel chan, SRefCon refCon);
         if (self)
         {
             [self showWindow:self];
-            _theErr = NewSpeechChannel(NULL,&speechChennel);
+            _theErr = NewSpeechChannel(NULL,&_speechChennel);
             
-            CFNumberRef callback = CFNumberCreate(NULL, kCFNumberLongType, MySpeechDoneProc);
-            _theErr = SetSpeechProperty (speechChennel,kSpeechTextDoneCallBack, callback);
             
-//            _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, NULL);
+            _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, NULL);
             dbFileIsSelected = NO;
             tableIsSelected = NO;
             fieldIsSelected = NO;
@@ -78,33 +73,33 @@ static pascal void MySpeechDoneProc (SpeechChannel chan, SRefCon refCon);
 
 - (void)convertAndPlace
 {
-    NSArray* contentStringArray = [DataBaseQuery textQueryWithFile:[_databaseURL relativePath] AndQsql:[NSString stringWithFormat:@"select %@,rowid,section from %@",fieldNameTextField.stringValue,tableNameTextField.stringValue] ];
+    NSArray* contentStringArray = [DataBaseQuery textQueryWithFile:[_databaseURL relativePath]
+                                                           AndQsql:[NSString stringWithFormat:@"select %@,rowid,section from %@",
+                                                                    fieldNameTextField.stringValue,
+                                                                    tableNameTextField.stringValue] ];
     
-    CFURLRef fileCFURLRef = NULL;
-    
-
 
     for (NSArray* recordI in contentStringArray)
     {
-        loopStop = true;
-        fieldNameTextField.stringValue=@"english";
+
         //NSLog(@"%@",[recordI objectAtIndex:0]);
         //        _fileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"./%@_%@_%@.aiff", [recordI objectAtIndex:1], [recordI objectAtIndex:2], [recordI objectAtIndex:0] ] ];
-        NSString* lool1=[recordI objectAtIndex:1];
-        NSString* lool2=[recordI objectAtIndex:2];
-        NSString* lool3=@"english";
-        NSString* lool4=[recordI objectAtIndex:0];
-        NSString* tempString = [NSString stringWithFormat:@"%@_%@_%@_%@.aiff", lool1, lool2, lool3, lool4];
-        NSLog(@"%@",tempString);
-        _fileURL = [[_saveDirectoryURL URLByAppendingPathComponent:tempString] copy];
-        fileCFURLRef = CFBridgingRetain(_fileURL);
-        _theErr = SetSpeechProperty (speechChennel,kSpeechOutputToFileURLProperty, fileCFURLRef);
+
+        _fileURL = [_saveDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"./%@_%@_%@_%@.aiff",
+                                                                   [recordI objectAtIndex:1],
+                                                                   [recordI objectAtIndex:2],
+                                                                   fieldNameTextField.stringValue,
+                                                                   [recordI objectAtIndex:0] ]];
+        CFURLRef fileCFURLRef = (__bridge CFURLRef)_fileURL;
+        
+        _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, fileCFURLRef);
+        
+        CFStringRef cFStringRef = (__bridge CFStringRef)[recordI objectAtIndex:0];
+        sleep(0.2);
+        
+        _theErr = SpeakCFString(_speechChennel, cFStringRef, NULL);
         
         
-        CFStringRef cFStringRef = CFBridgingRetain([recordI objectAtIndex:0]);
-        
-        _theErr = SpeakCFString(speechChennel, cFStringRef, NULL);
-        //while (loopStop) {}
     }
     [convertButton setEnabled:NO];
 }
@@ -167,13 +162,20 @@ static pascal void MySpeechDoneProc (SpeechChannel chan, SRefCon refCon);
     int i = 1;
     for (NSArray* recordI in contentStringArray)
     {
-        NSString* qsqlStringI = [NSString stringWithFormat:@"UPDATE %@ SET %@='%@_%@_%@_%@.mp3' WHERE rowid='%d'",tableNameTextField.stringValue, pathFieldTextField.stringValue, [recordI objectAtIndex:1], [recordI objectAtIndex:2], fieldNameTextField.stringValue, [recordI objectAtIndex:0], i];
+        NSString* qsqlStringI = [NSString stringWithFormat:@"UPDATE %@ SET %@='%@_%@_%@_%@.mp3' WHERE rowid='%d'",
+                                 tableNameTextField.stringValue,
+                                 pathFieldTextField.stringValue,
+                                 [recordI objectAtIndex:1],
+                                 [recordI objectAtIndex:2],
+                                 fieldNameTextField.stringValue,
+                                 [recordI objectAtIndex:0], i];
         NSLog(qsqlStringI);
         [qsqlArray addObject: qsqlStringI];
         ++i;
     }
     
-    [DataBaseQuery executeQsqlArray:qsqlArray inFile:[_databaseURL relativePath]];
+    [DataBaseQuery executeQsqlArray:qsqlArray
+                             inFile:[_databaseURL relativePath]];
      
     [insertButton setEnabled:NO];
 }
