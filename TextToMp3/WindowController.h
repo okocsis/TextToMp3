@@ -15,6 +15,8 @@
 {
     OSErr _theErr;
     
+    CFNumberRef _number;
+    CFNumberRef _numberSelf;
     SpeechChannel _speechChennel;
     NSURL* _fileURL;
     NSURL* _databaseURL;
@@ -27,6 +29,8 @@
     BOOL dbFileIsSelected;
     BOOL tableIsSelected;
     BOOL fieldIsSelected;
+    @public
+    BOOL fileExportIsReady;
 
 }
 
@@ -37,6 +41,8 @@
 
 @property (strong, atomic) IBOutlet NSButton* convertButton;
 @property (strong, atomic) IBOutlet NSButton* insertButton;
+
+@property (assign) SpeechChannel _speechChennel;
 
 //@property (assign) SpeechChannel speechChennel;
 

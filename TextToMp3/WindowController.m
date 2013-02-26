@@ -18,10 +18,21 @@
 - (void) convertAndPlace;
 @end
 
+void MySpeechDoneProc (SpeechChannel chan,long refCon);
+
+
+
 @implementation WindowController
 @synthesize tableNameTextField, fieldNameTextField, pathFieldTextField, dbInfoTextView;
 @synthesize convertButton, insertButton;
-
+@synthesize _speechChennel;
+void MySpeechDoneProc (SpeechChannel chan,long refCon)
+{
+    voidPtr temp = refCon;
+    WindowController* self = (__bridge WindowController *)(temp);
+    self->fileExportIsReady = YES;
+    
+}
 
 - (id)init
 {
@@ -38,10 +49,25 @@
             _theErr = NewSpeechChannel(NULL,&_speechChennel);
             
             
+            
             _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, NULL);
+            
+            NSInteger speechDoneIntPointer = &MySpeechDoneProc;
+            
+            _number = CFNumberCreate(NULL, kCFNumberNSIntegerType, &speechDoneIntPointer );
+            _theErr = SetSpeechProperty (_speechChennel,kSpeechSpeechDoneCallBack, _number);
+            
+            
+            NSInteger intSelf = self;
+            
+            _numberSelf = CFNumberCreate(NULL, kCFNumberNSIntegerType, &intSelf );
+            _theErr = SetSpeechProperty (_speechChennel,kSpeechRefConProperty, _numberSelf);
+            
+            
             dbFileIsSelected = NO;
             tableIsSelected = NO;
             fieldIsSelected = NO;
+            fileExportIsReady = NO;
             
         }
     return self;
@@ -93,12 +119,12 @@
         CFURLRef fileCFURLRef = (__bridge CFURLRef)_fileURL;
         
         _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, fileCFURLRef);
-        
+            
         CFStringRef cFStringRef = (__bridge CFStringRef)[recordI objectAtIndex:0];
-        sleep(0.2);
         
         _theErr = SpeakCFString(_speechChennel, cFStringRef, NULL);
-        
+        while (!fileExportIsReady);
+        fileExportIsReady = NO;
         
     }
     [convertButton setEnabled:NO];
@@ -183,13 +209,5 @@
 {
     
 }
-static pascal void MySpeechDoneProc (SpeechChannel chan, SRefCon refCon)
-{
-    @autoreleasepool
-    {
-        int i =6;
-        // Code benefitting from a local autorelease pool.
-    }
-    
-}
+
 @end
