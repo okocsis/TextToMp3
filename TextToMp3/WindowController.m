@@ -48,9 +48,23 @@ void MySpeechDoneProc (SpeechChannel chan,long refCon)
             [self showWindow:self];
             _theErr = NewSpeechChannel(NULL,&_speechChennel);
             
+
+            _mp3StreamBasicDescription.mSampleRate = 22050;
+            _mp3StreamBasicDescription.mFormatID = kAudioFormatLinearPCM;
+            _mp3StreamBasicDescription.mFormatFlags = kAudioFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsBigEndian;
+            _mp3StreamBasicDescription.mBytesPerPacket = 2;
+            _mp3StreamBasicDescription.mFramesPerPacket = 1;
+            _mp3StreamBasicDescription.mBytesPerFrame = 2;
+            _mp3StreamBasicDescription.mChannelsPerFrame = 1;
+            _mp3StreamBasicDescription.mBitsPerChannel = 16;
             
             
-            _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, NULL);
+            memset(&_mp3ChannelLayout, 0, sizeof(AudioChannelLayout));
+            _mp3ChannelLayout.mChannelLayoutTag = kAudioChannelLayoutTag_Mono;
+            
+            
+            
+//            _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, NULL);
             
             NSInteger speechDoneIntPointer = &MySpeechDoneProc;
             
@@ -104,7 +118,7 @@ void MySpeechDoneProc (SpeechChannel chan,long refCon)
                                                                     fieldNameTextField.stringValue,
                                                                     tableNameTextField.stringValue] ];
     
-
+    ExtAudioFileRef mp3AudioFile = NULL;
     for (NSArray* recordI in contentStringArray)
     {
 
@@ -118,14 +132,29 @@ void MySpeechDoneProc (SpeechChannel chan,long refCon)
                                                                    [recordI objectAtIndex:0] ]];
         CFURLRef fileCFURLRef = (__bridge CFURLRef)_fileURL;
         
-        _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, fileCFURLRef);
+//        _theErr = SetSpeechProperty (_speechChennel,kSpeechOutputToFileURLProperty, fileCFURLRef);
+        
+        
+        _theErr = ExtAudioFileCreateWithURL(fileCFURLRef,
+                                            kAudioFileAIFFType,
+                                            &(_mp3StreamBasicDescription),
+                                            &(_mp3ChannelLayout),
+                                            kAudioFileFlags_EraseFile,
+                                            &mp3AudioFile);
+        NSInteger mp3AudioFileIntPointer = mp3AudioFile;
+        CFNumberRef mp3AudioFileCFNumber;
+//        int a = 1;
+        mp3AudioFileCFNumber = CFNumberCreate(NULL, kCFNumberNSIntegerType, &mp3AudioFile );
+        _theErr = SetSpeechProperty(_speechChennel, kSpeechOutputToExtAudioFileProperty, mp3AudioFileCFNumber);
+        
             
         CFStringRef cFStringRef = (__bridge CFStringRef)[recordI objectAtIndex:0];
-        
         _theErr = SpeakCFString(_speechChennel, cFStringRef, NULL);
-        while (!fileExportIsReady);
+
+        while (!fileExportIsReady) usleep(1);
         fileExportIsReady = NO;
-        
+
+        mp3AudioFile = NULL;
     }
     [convertButton setEnabled:NO];
 }
@@ -207,7 +236,8 @@ void MySpeechDoneProc (SpeechChannel chan,long refCon)
 }
 - (void)dealloc
 {
-    
+    _theErr = DisposeSpeechChannel(_speechChennel);
+    _speechChennel = NULL;
 }
 
 @end

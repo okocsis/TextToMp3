@@ -15,6 +15,9 @@
 {
     OSErr _theErr;
     
+    AudioStreamBasicDescription _mp3StreamBasicDescription;
+    AudioChannelLayout _mp3ChannelLayout;
+    
     CFNumberRef _number;
     CFNumberRef _numberSelf;
     SpeechChannel _speechChennel;

@@ -73,11 +73,37 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TextToMp3/WindowController.m"
-         timestampString = "383567644.412881"
+         timestampString = "383583659.216824"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "127"
-         endingLineNumber = "127"
+         startingLineNumber = "155"
+         endingLineNumber = "155"
+         landmarkName = "-convertAndPlace"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TextToMp3/WindowController.m"
+         timestampString = "383580655.055876"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "138"
+         endingLineNumber = "138"
+         landmarkName = "-convertAndPlace"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TextToMp3/WindowController.m"
+         timestampString = "383585926.574358"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "157"
+         endingLineNumber = "157"
          landmarkName = "-convertAndPlace"
          landmarkType = "5">
       </FileBreakpoint>
